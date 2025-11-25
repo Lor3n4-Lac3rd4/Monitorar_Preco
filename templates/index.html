@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛒 Monitor de Preços</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛒 Monitor de Preços Automático</h1>
+            <p>Monitore preços de produtos automaticamente</p>
+        </div>
+
+        <nav class="nav">
+            <ul class="nav-tabs">
+                <li class="nav-tab">
+                    <button onclick="openTab('teste')" class="active">🧪 Teste Rápido</button>
+                </li>
+                <li class="nav-tab">
+                    <button onclick="openTab('monitorar')">📦 Monitorar</button>
+                </li>
+                <li class="nav-tab">
+                    <button onclick="openTab('logs')">📊 Logs</button>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="tab-content">
+            <div id="teste" class="tab-pane active">
+                <div class="card">
+                    <h2>🧪 Teste Rápido</h2>
+                    <div class="form-group">
+                        <label for="urlTeste">URL do Produto:</label>
+                        <input type="url" id="urlTeste" placeholder="https://www.exemplo.com/produto">
+                    </div>
+                    <button class="btn" onclick="testarExtracao()">🧪 Testar</button>
+                    <div id="resultadoTeste" class="hidden">
+                        <div class="alert" id="alertResultado"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="monitorar" class="tab-pane">
+                <div class="card">
+                    <h2>📦 Monitorar Produtos</h2>
+                    <div id="statusMonitoramento" class="alert">
+                        <span class="status-indicator status-inactive"></span>
+                        Monitoramento parado
+                    </div>
+                    <div class="form-group">
+                        <label>Lista de Produtos:</label>
+                        <textarea id="listaProdutos" rows="8" placeholder='[{"nome": "Produto", "url": "https://...", "preco_desejado": 100.00}]'></textarea>
+                    </div>
+                    <div>
+                        <button class="btn btn-success" onclick="iniciarMonitoramento()">▶️ Iniciar</button>
+                        <button class="btn btn-danger" onclick="pararMonitoramento()">⏹️ Parar</button>
+                        <button class="btn btn-warning" onclick="carregarExemplo()">📋 Exemplo</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="logs" class="tab-pane">
+                <div class="card">
+                    <h2>📊 Logs do Sistema</h2>
+                    <button class="btn" onclick="atualizarLogs()">🔄 Atualizar</button>
+                    <div class="log-container" id="logContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

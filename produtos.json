@@ -1,0 +1,14 @@
+{
+  "produtos": [
+    {
+      "nome": "Notebook Dell Inspiron 15",
+      "url": "https://www.amazon.com.br/dp/B0C5VDLZ33",
+      "preco_desejado": 2500.00
+    },
+    {
+      "nome": "Yamaha MT-09 2024 0km",
+      "url": "https://www.webmotors.com.br/motos/yamaha/mt-09/2024/",
+      "preco_desejado": 48000.00
+    }
+  ]
+}
